@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sudo cp /etc/vsftpd.conf.older /etc/vsftpd.conf
+sudo rm /etc/vsftpd.conf.older
+
+systemctl restart vsftpd
+
+exit 0

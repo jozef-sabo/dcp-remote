@@ -1,3 +1,4 @@
 #!/bin/sh
 
-dpkg-deb --build bin/deb-dcp-rse/ build/dcpomatic-remote-server-encoding.deb
+cd bin || exit
+sh deb-scp-rse.sh

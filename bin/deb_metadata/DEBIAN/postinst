@@ -1,0 +1,14 @@
+#!/bin/sh
+
+sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.older
+sudo cp /usr/share/applications/sabo.dcpomatic-remote-server-encoding/vsftpd.conf /etc/vsftpd.conf
+
+
+useradd vsftpd
+mkdir /var/ftp
+chown vsftpd /var/ftp
+chmod o+rwx /var/ftp
+
+systemctl restart vsftpd
+
+exit 0
