@@ -1,0 +1,13 @@
+sudo apt install vsftpd
+sudo apt install libpam-pwdfile
+
+sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.old
+sudo cp ./app/vsftpd.conf /etc/vsftpd.conf
+
+sudo cp ./app/vsftpd_virtual /etc/pam.d/vsftpd_virtual
+sudo touch /etc/virtual_users.pwd
+
+sudo useradd vsftpd
+sudo mkdir /var/ftp
+sudo chown vsftpd /var/ftp
+sudo chmod o+rwx /var/ftp

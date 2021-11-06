@@ -1,0 +1,9 @@
+Package: dcpomatic-remote-server-encoding
+Version: 0.1.0
+Section: development
+Priority: optional
+Architecture: all
+Depends: vsftpd (>= 3.0.3), libpam-pwdfile (>=1.0-1)
+Maintainer: Jozef Sabo
+Description: DCP-O-Matic remote server encoding
+ This is the package
