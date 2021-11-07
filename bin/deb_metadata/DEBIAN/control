@@ -5,5 +5,7 @@ Priority: optional
 Architecture: all
 Depends: vsftpd (>= 3.0.3), libpam-pwdfile (>=1.0-1)
 Maintainer: Jozef Sabo
+Vcs-Git: https://github.com/jozef-sabo/dcpomatic-remote-server-encoding.git
+Vcs-browser: https://github.com/jozef-sabo/dcpomatic-remote-server-encoding.git
 Description: DCP-O-Matic remote server encoding
  This is the package
