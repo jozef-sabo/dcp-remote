@@ -1,0 +1,4 @@
+[DCPomaticRemote]
+title=DCP-o-matic remote encoding
+description=Allows ports for DCP-o-matic Remote encoding server
+ports=20,21/tcp|10100:10500/tcp
