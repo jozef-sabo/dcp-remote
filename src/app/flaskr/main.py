@@ -27,8 +27,8 @@ def file_list():
     dcpomatic_project_validate = request.values.get("validate_dcp_projects", False)
 
     if dcpomatic_project_validate:
-        return responsifier.make_response(path_processor.list_diferenciate_projects(req_path))
-    return responsifier.make_response(path_processor.list_diferenciate_dirs(req_path))
+        return responsifier.make_response(path_processor.list_differentiate_projects(req_path))
+    return responsifier.make_response(path_processor.list_differentiate_dirs(req_path))
 
 
 @app.route("/api/project_info", methods=['POST'])
@@ -50,7 +50,7 @@ def project_info():
         sanitized_path = path_processor.sanitize_input_path(projects_directory)
         req_path = os.path.join(ROOT_DIRECTORY, sanitized_path)
         projects = [sanitized_path]
-        projects_names = path_processor.list_diferenciate_projects(req_path, return_all=False)
+        projects_names = path_processor.list_differentiate_projects(req_path, return_all=False)
 
         if type(projects_names) == tuple:
             return responsifier.make_response(projects_names)

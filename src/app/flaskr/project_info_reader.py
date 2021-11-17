@@ -19,7 +19,7 @@ def read(path_to_folder: str) -> dict:
         "resolution": root.find("Resolution").text,
         "fps": int(root.find("VideoFrameRate").text),
         "audio_channels": int(root.find("AudioChannels").text),
-        "isdcf_metadata": {
+        "ISDCF_metadata": {
             "audio_lang": root.find("ISDCFMetadata").find("AudioLanguage").text,
             "subtitle_lang": root.find("ISDCFMetadata").find("SubtitleLanguage").text,
             "territory": root.find("ISDCFMetadata").find("Territory").text,

@@ -33,7 +33,7 @@ def list_contents(req_path: str) -> Union[dict, tuple]:
         entry = entry.decode("UTF-8")
         starting_index = entry.index("\"")
         # drwxr-xr-x 8 owner group 4096 Nov 16 21:31 "Downloads"
-        # first occurence of " will be divider       ^
+        # first occurrence of " will be divider       ^
         contents[entry[starting_index + 1:-2]] = entry[:starting_index - 1]
         # drwxr-xr-x 8 owner group 4096 Nov 16 21:31 "Downloads"
         #                                             ^-------^ folder name: start_at (divider + 1)
@@ -43,7 +43,7 @@ def list_contents(req_path: str) -> Union[dict, tuple]:
     return contents
 
 
-def list_diferenciate_dirs(req_path: str) -> Union[dict, tuple]:
+def list_differentiate_dirs(req_path: str) -> Union[dict, tuple]:
     contents = list_contents(req_path)
     if contents == (404, {"error": "Folder does not exist"}):
         return 404, {"error": "Folder does not exist"}
@@ -59,16 +59,16 @@ def list_diferenciate_dirs(req_path: str) -> Union[dict, tuple]:
     return contents
 
 
-def list_diferenciate_projects(req_path: str, return_all: bool = True) -> Union[dict, tuple]:
-    contents = list_diferenciate_dirs(req_path)
+def list_differentiate_projects(req_path: str, return_all: bool = True) -> Union[dict, tuple]:
+    contents = list_differentiate_dirs(req_path)
     if contents == (404, {"error": "Folder does not exist"}):
         return 404, {"error": "Folder does not exist"}
     project_contents = {}
     for key, value in contents.items():
         if return_all:  # both files and directories
-            if not contents[key]:  # from list_diferenciate_dirs is not dir, is file
+            if not contents[key]:  # from list_differentiate_dirs is not dir, is file
                 project_contents[key] = "file"
-            else:  # from list_diferenciate_dirs is dir so could be a project
+            else:  # from list_differentiate_dirs is dir so could be a project
                 project_contents[key] = "directory"
                 if project_info_reader.is_project(os.path.join(req_path, key)):
                     project_contents[key] = "project"

@@ -3,8 +3,8 @@ from typing import Union
 import json
 
 CORS = ""
-CTYPE_PLAIN = "text/plain; charset=UTF-8"
-CTYPE_JSON = "application/json; charset=UTF-8"
+C_TYPE_PLAIN = "text/plain; charset=UTF-8"
+C_TYPE_JSON = "application/json; charset=UTF-8"
 
 
 def set_cors(cors: str):
@@ -23,7 +23,7 @@ def make_response(data: Union[dict, tuple, str, list], **kwargs) -> Response:
             status=200
         )
         response.headers["Cross-Origin-Resource-Policy"] = cors
-        response.headers["Content-Type"] = CTYPE_PLAIN
+        response.headers["Content-Type"] = C_TYPE_PLAIN
         return response
 
     if type(data) == dict or type(data) == list:
@@ -32,11 +32,11 @@ def make_response(data: Union[dict, tuple, str, list], **kwargs) -> Response:
             status=200
         )
         response.headers["Cross-Origin-Resource-Policy"] = cors
-        response.headers["Content-Type"] = CTYPE_JSON
+        response.headers["Content-Type"] = C_TYPE_JSON
         return response
 
     text = ""
-    content_type = CTYPE_PLAIN
+    content_type = C_TYPE_PLAIN
     if type(data[0]) == int:  # (200, 200)
         if type(data[1]) == int:  # (text: 200, response_code: 200)
             text = str(data[0])
@@ -49,7 +49,7 @@ def make_response(data: Union[dict, tuple, str, list], **kwargs) -> Response:
 
     if type(data[0]) == dict or type(data) == list:
         text = json.dumps(data[0])
-        content_type = CTYPE_JSON
+        content_type = C_TYPE_JSON
 
     response = Response(
         text,
@@ -59,4 +59,3 @@ def make_response(data: Union[dict, tuple, str, list], **kwargs) -> Response:
     response.headers["Content-Type"] = content_type
 
     return response
-
