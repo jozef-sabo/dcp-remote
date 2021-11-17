@@ -23,7 +23,7 @@ def file_list():
     req_path = request.values.get("path", 0)
     if req_path == 0:
         return responsifier.make_response((400, {"error": "Path was not set"}))
-    req_path = os.path.join((ROOT_DIRECTORY + req_path).replace("..", "").replace("//", "/"))
+    req_path = os.path.join(ROOT_DIRECTORY, path_processor.sanitize_input_path(req_path))
     dcpomatic_project_validate = request.values.get("validate_dcp_projects", False)
 
     if dcpomatic_project_validate:
@@ -39,18 +39,21 @@ def project_info():
     if project == 0 and projects_directory == 0:
         return responsifier.make_response((400, {"error": "Path was not set"}))
 
-    if project:
-        req_path = os.path.join((ROOT_DIRECTORY + project).replace("..", "").replace("//", "/"))
+    if project != 0:
+        req_path = os.path.join(ROOT_DIRECTORY, path_processor.sanitize_input_path(project))
         if project_info_reader.is_project(req_path):
             return responsifier.make_response(project_info_reader.get_project(req_path))
         else:
             return responsifier.make_response((404, {"error": "Project not found"}))
 
     else:
-        req_path = os.path.join((ROOT_DIRECTORY + projects_directory).replace("..", "").replace("//", "/"))
-        projects = [projects_directory]
+        sanitized_path = path_processor.sanitize_input_path(projects_directory)
+        req_path = os.path.join(ROOT_DIRECTORY, sanitized_path)
+        projects = [sanitized_path]
         projects_names = path_processor.list_diferenciate_projects(req_path, return_all=False)
-        print(projects_names)
+
+        if type(projects_names) == tuple:
+            return responsifier.make_response(projects_names)
 
         for key in projects_names.keys():
             projects.append(project_info_reader.get_project(key))

@@ -4,6 +4,17 @@ import project_info_reader
 from typing import Union
 
 
+def sanitize_input_path(req_path: str):
+    req_path = req_path.replace("..", "").replace("//", "/").strip("\\\"│#;$*=`[]<>")
+    for char_num in range(len(req_path)):
+        if req_path[char_num] != "/":
+            req_path = req_path[char_num:]
+            break
+    if req_path == "/":
+        req_path = ""
+    return req_path
+
+
 def list_contents(req_path: str) -> Union[dict, tuple]:
     execution = subprocess.Popen(["ls", "-l", "-Q", req_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     # OUT
