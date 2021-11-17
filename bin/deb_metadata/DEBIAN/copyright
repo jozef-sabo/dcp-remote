@@ -1,5 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: dcpomatic-remote-server-encoding
+Upstream-Name: dcp-remote
 Upstream-Contact: Jozef Sabo
 Source: https://github.com/jozef-sabo/dcpomatic-remote-server-encoding.git
 License: GPL-3.0-only

@@ -1,9 +1,9 @@
-Package: dcpomatic-remote-server-encoding
+Package: dcp-remote
 Version: 0.1.0
 Section: development
 Priority: optional
 Architecture: all
-Depends: vsftpd (>= 3.0.3), libpam-pwdfile (>=1.0-1)
+Depends: vsftpd (>= 3.0.3), libpam-pwdfile (>=1.0-1), python3
 Maintainer: Jozef Sabo
 Vcs-Git: https://github.com/jozef-sabo/dcpomatic-remote-server-encoding.git
 Vcs-browser: https://github.com/jozef-sabo/dcpomatic-remote-server-encoding.git
