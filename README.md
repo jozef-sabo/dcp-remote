@@ -1,4 +1,4 @@
-# DCP-o-matic remote Server Encoding
+# DCP-o-matic remote server encoding
 This Python app helps you to easily send and process media files and DCP-O-Matic projects, assign an encoding job, queue the jobs and finally download encoded DCPs.
 
 ## Structure of the program
@@ -9,6 +9,7 @@ This Python app helps you to easily send and process media files and DCP-O-Matic
 │   │   └── dcp-remote
 │   └── bin   # scripts which program uses (without root)
 │       └── dcp-remote
+│           └── python scripts
 │   └── lib   # scripts which program uses (need root)
 │       └── dcp-remote
 ├── etc
