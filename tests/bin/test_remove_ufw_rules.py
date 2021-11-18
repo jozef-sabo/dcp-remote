@@ -11,7 +11,7 @@ usr4:x:801:801:usr4:/usr/sbin:/usr/sbin/nologin\nusr5:x:803:802:usr5:/usr/sbin:/
 usr6:x:804:803:usr6:/usr/sbin:/usr/sbin/nologin\nusr:x:805:805:usr7:/usr/sbin:/usr/sbin/nologin
 usr8:x:808:850:usr8:/usr/sbin:/usr/sbin/nologin
 """))
-    def test_return_unused_uid_gid(self):
+    def test_remove_ufw_rules(self):
         with mock.patch("builtins.print") as mock_print:
             from src.bin import return_unused_uid_gid
             mock_print.assert_has_calls(
