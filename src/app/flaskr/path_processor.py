@@ -1,17 +1,27 @@
 import os.path
 import subprocess
-import project_info_reader
+from . import project_info_reader
 from typing import Union
+
+vulnerable_characters = ["\\", "\"", "\n", "│", "#", ";", "$", "*", "=", "`", "&", "[", "]", "<", ">"]
 
 
 def sanitize_input_path(req_path: str):
-    req_path = req_path.replace("..", "").replace("//", "/").strip("\\\"│#;$*=`[]<>")
-    for char_num in range(len(req_path)):
-        if req_path[char_num] != "/":
-            req_path = req_path[char_num:]
+    # removing vulnerable characters
+    req_path = ''.join((filter(lambda ch: ch not in vulnerable_characters, req_path)))
+    req_path = req_path.strip().replace("//", "/").replace("..", "")
+
+    # removing leading and trailing whitespaces between /
+    req_path_split = [item.strip() for item in req_path.split("/")]
+    req_path = "/".join(req_path_split)
+
+    # removing the leading dots (.) and slashes (/)
+    path_length = len(req_path)
+    for char_num in range(path_length):
+        if req_path[char_num] != "/" and req_path[char_num] != ".":
+            path_length = char_num
             break
-    if req_path == "/":
-        req_path = ""
+    req_path = req_path[path_length:]
     return req_path
 
 
