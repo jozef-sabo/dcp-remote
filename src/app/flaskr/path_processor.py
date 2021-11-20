@@ -9,10 +9,11 @@ vulnerable_characters = ["\\", "\"", "\n", "│", "#", ";", "$", "*", "=", "`", 
 def sanitize_input_path(req_path: str):
     # removing vulnerable characters
     req_path = ''.join((filter(lambda ch: ch not in vulnerable_characters, req_path)))
-    req_path = req_path.strip().replace("//", "/").replace("..", "")
+    req_path = req_path.strip().replace("..", "").replace("//", "/")
 
-    # removing leading and trailing whitespaces between /
-    req_path_split = [item.strip() for item in req_path.split("/")]
+    # removing leading and trailing whitespaces between /, occasionally also /
+    req_path_split = req_path.split("/")
+    req_path_split[:] = [item.strip() for item in req_path_split if item]
     req_path = "/".join(req_path_split)
 
     # removing the leading dots (.) and slashes (/)
@@ -26,18 +27,18 @@ def sanitize_input_path(req_path: str):
 
 
 def list_contents(req_path: str) -> Union[dict, tuple]:
-    execution = subprocess.Popen(["ls", "-l", "-Q", req_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    # OUT
-    # total 52
-    # drwxr-xr-x 3 owner group 4096 Nov  9 09:20 "Desktop"
-    # drwxr-xr-x 2 owner group 4096 Jan  3  2021 "Documents"
-    # drwxr-xr-x 8 owner group 4096 Nov 16 21:31 "Downloads"
+    with subprocess.Popen(["ls", "-l", "-Q", req_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE) as execution:
+        # OUT
+        # total 52
+        # drwxr-xr-x 3 owner group 4096 Nov  9 09:20 "Desktop"
+        # drwxr-xr-x 2 owner group 4096 Jan  3  2021 "Documents"
+        # drwxr-xr-x 8 owner group 4096 Nov 16 21:31 "Downloads"
 
-    execution.wait()
-    if execution.stderr.read():
-        return 404, {"error": "Folder does not exist"}
+        if execution.stderr.read():
+            return 404, {"error": "Folder does not exist"}
 
-    list_dir = execution.stdout.readlines()
+        list_dir = execution.stdout.readlines()
+
     contents = {}
     for entry in list_dir[1:]:
         entry = entry.decode("UTF-8")
@@ -57,16 +58,17 @@ def list_differentiate_dirs(req_path: str) -> Union[dict, tuple]:
     contents = list_contents(req_path)
     if contents == (404, {"error": "Folder does not exist"}):
         return 404, {"error": "Folder does not exist"}
+
+    contents_dirs = {}
     for key, value in contents.items():
         if value[0] == "d":  # d as directory
-            contents[key] = True
+            contents_dirs[key] = True
             continue
         if value[0] == "l":  # l as link
-            contents.pop(key)
             continue
-        contents[key] = False
+        contents_dirs[key] = False
 
-    return contents
+    return contents_dirs
 
 
 def list_differentiate_projects(req_path: str, return_all: bool = True) -> Union[dict, tuple]:
