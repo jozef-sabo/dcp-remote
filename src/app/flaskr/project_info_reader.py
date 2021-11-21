@@ -1,6 +1,7 @@
 import os
 from lxml import etree  # faster than xml.ElementTree
 import time
+from typing import Union
 
 projects = {}
 TIME_TO_LIVE = 5 * 60
@@ -21,12 +22,18 @@ def read(path_to_folder: str) -> dict:
         "audio_channels": int(root.find("AudioChannels").text),
         "ISDCF_metadata": {
             "audio_lang": root.find("ISDCFMetadata").find("AudioLanguage").text,
-            "subtitle_lang": root.find("ISDCFMetadata").find("SubtitleLanguage").text,
             "territory": root.find("ISDCFMetadata").find("Territory").text,
             "rating": root.find("ISDCFMetadata").find("Rating").text,
         },
         "content": []
     }
+
+    subtitle_lang_tag = root.find("ISDCFMetadata").find("SubtitleLanguage")
+    if subtitle_lang_tag is not None:
+        metadata["ISDCF_metadata"]["subtitle_lang"] = subtitle_lang_tag.text
+    else:
+        metadata["ISDCF_metadata"]["subtitle_lang"] = ""
+
     playlist = root.find("Playlist")
     for content in playlist:
         if content.tag == "Content":
@@ -41,6 +48,7 @@ def read(path_to_folder: str) -> dict:
                 content_dict["length"] = int(content.find("VideoLength").text)
                 content_dict["width"] = int(content.find("VideoWidth").text)
                 content_dict["height"] = int(content.find("VideoHeight").text)
+                content_dict["ratio"] = int(content.find("Scale").find("Ratio").text)
 
             audio_stream = content.find("AudioStream")
             content_dict["audio_length"] = int(audio_stream.find("Length").text)
