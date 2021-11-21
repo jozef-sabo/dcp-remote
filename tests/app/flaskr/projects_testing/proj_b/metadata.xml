@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Metadata>
+  <Version>37</Version>
+  <Name>Project_B</Name>
+  <DCPContentType>FTR</DCPContentType>
+  <Container>185</Container>
+  <Resolution>2K</Resolution>
+  <ISDCFMetadata>
+    <ContentVersion>1</ContentVersion>
+    <SubtitleLanguage>CZ</SubtitleLanguage>
+    <AudioLanguage>SK</AudioLanguage>
+    <Territory>SK</Territory>
+    <Rating>15</Rating>
+  </ISDCFMetadata>
+  <VideoFrameRate>60</VideoFrameRate>
+  <AudioChannels>6</AudioChannels>
+  <Playlist>
+    <Content>
+      <Path mtime="1636312099">/home/user/Downloads/bbb_sunflower_1080p_60fps_normal.mp4</Path>
+      <VideoFrameRate>60</VideoFrameRate>
+      <VideoLength>38072</VideoLength>
+      <VideoWidth>1920</VideoWidth>
+      <VideoHeight>1080</VideoHeight>
+      <Scale>
+        <Ratio>178</Ratio>
+      </Scale>
+      <AudioStream>
+        <FrameRate>48000</FrameRate>
+        <Length>30457600</Length>
+      </AudioStream>
+      <AudioStream>
+        <FrameRate>48000</FrameRate>
+        <Length>30457600</Length>
+      </AudioStream>
+    </Content>
+    <Content>
+      <Type>FFmpeg</Type>
+      <Path mtime="1637170089">/home/user/Downloads/En-us-Slovakia.ogg</Path>
+      <AudioStream>
+        <FrameRate>44100</FrameRate>
+        <Length>79872</Length>
+      </AudioStream>
+    </Content>
+    <Content>
+      <Type>FFmpeg</Type>
+      <Path mtime="1636312143">/home/user/Downloads/bbb_sunflower_2160p_60fps_normal.mp4</Path>
+      <VideoFrameRate>60</VideoFrameRate>
+      <VideoLength>38072</VideoLength>
+      <VideoWidth>3840</VideoWidth>
+      <VideoHeight>2160</VideoHeight>
+      <Scale>
+        <Ratio>178</Ratio>
+      </Scale>
+      <AudioStream>
+        <FrameRate>48000</FrameRate>
+        <Length>30457600</Length>
+      </AudioStream>
+      <AudioStream>
+        <FrameRate>48000</FrameRate>
+        <Length>30457600</Length>
+      </AudioStream>
+    </Content>
+  </Playlist>
+</Metadata>
