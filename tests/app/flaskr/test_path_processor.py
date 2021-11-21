@@ -35,8 +35,8 @@ class Tests(unittest.TestCase):
 
     def test_list_contents(self):
         self.assertEqual(
-            (404, {'error': 'Folder does not exist'}),
-            path_processor.list_contents(os.path.join(os.getcwd(), "test/test2"))
+            (404, {'error': 'Folder does not exist', "requested_path": req_path}),
+            path_processor.list_contents(req_path)
         )
         os.mkdir(os.path.join(os.getcwd(), "test/test2"))
         open("test/aa.txt", "w").close()
@@ -58,8 +58,8 @@ class Tests(unittest.TestCase):
 
     def test_differentiate_dirs(self):
         self.assertEqual(
-            (404, {'error': 'Folder does not exist'}),
-            path_processor.list_differentiate_dirs(os.path.join(os.getcwd(), "test/test2"))
+            (404, {'error': 'Folder does not exist', "requested_path": req_path}),
+            path_processor.list_differentiate_dirs(req_path)
         )
         os.mkdir(os.path.join(os.getcwd(), "test/test2"))
         os.mkdir(os.path.join(os.getcwd(), "test/test3"))
@@ -108,8 +108,8 @@ class Tests(unittest.TestCase):
 
     def test_differentiate_projects(self):
         self.assertEqual(
-            (404, {'error': 'Folder does not exist'}),
-            path_processor.list_differentiate_projects(os.path.join(os.getcwd(), "test/test2"))
+            (404, {'error': 'Folder does not exist', "requested_path": req_path}),
+            path_processor.list_differentiate_projects(req_path)
         )
 
 

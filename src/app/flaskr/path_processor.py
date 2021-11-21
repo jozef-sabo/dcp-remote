@@ -35,7 +35,7 @@ def list_contents(req_path: str) -> Union[dict, tuple]:
         # drwxr-xr-x 8 owner group 4096 Nov 16 21:31 "Downloads"
 
         if execution.stderr.read():
-            return 404, {"error": "Folder does not exist"}
+            return 404, {"error": "Folder does not exist", "requested_path": req_path}
 
         list_dir = execution.stdout.readlines()
 
@@ -56,8 +56,8 @@ def list_contents(req_path: str) -> Union[dict, tuple]:
 
 def list_differentiate_dirs(req_path: str) -> Union[dict, tuple]:
     contents = list_contents(req_path)
-    if contents == (404, {"error": "Folder does not exist"}):
-        return 404, {"error": "Folder does not exist"}
+    if contents == (404, {"error": "Folder does not exist", "requested_path": req_path}):
+        return 404, {"error": "Folder does not exist", "requested_path": req_path}
 
     contents_dirs = {}
     for key, value in contents.items():
@@ -73,8 +73,8 @@ def list_differentiate_dirs(req_path: str) -> Union[dict, tuple]:
 
 def list_differentiate_projects(req_path: str, return_all: bool = True) -> Union[dict, tuple]:
     contents = list_differentiate_dirs(req_path)
-    if contents == (404, {"error": "Folder does not exist"}):
-        return 404, {"error": "Folder does not exist"}
+    if contents == (404, {"error": "Folder does not exist", "requested_path": req_path}):
+        return 404, {"error": "Folder does not exist", "requested_path": req_path}
     project_contents = {}
     for key, value in contents.items():
         if return_all:  # both files and directories

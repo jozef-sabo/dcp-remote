@@ -78,7 +78,7 @@ def is_project(path_to_folder: str, forcibly_read: bool = False) -> bool:
         return True
 
 
-def get_project(path_to_folder: str) -> dict:
+def get_project(path_to_folder: str) -> Union[dict, tuple]:
     project_name = path_to_folder.split("/")[-1]
 
     metadata = projects.get(project_name)
@@ -89,7 +89,10 @@ def get_project(path_to_folder: str) -> dict:
     try:
         metadata = read(path_to_folder)
     except AttributeError:
-        return {}
+        return 404, {"error": f"The given path is not a project", "requested_path": path_to_folder}
+    except OSError:
+        return 404, {"error": f"Folder does not exist or the given path is not a project",
+                     "requested_path": path_to_folder}
     else:
         projects[project_name] = [metadata, int(time.time())]
         return metadata
