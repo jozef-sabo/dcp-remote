@@ -18,7 +18,3 @@ class Tests(unittest.TestCase):
                 mock.call("ufw --force delete 47")
             ]
         )
-
-
-if __name__ == '__main__':
-    unittest.main()

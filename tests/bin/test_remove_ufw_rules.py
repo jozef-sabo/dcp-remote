@@ -20,7 +20,3 @@ usr8:x:808:850:usr8:/usr/sbin:/usr/sbin/nologin
                     mock.call("ugid", 804),
                 ]
             )
-
-
-if __name__ == '__main__':
-    unittest.main()
