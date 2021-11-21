@@ -6,10 +6,10 @@ import shutil
 
 class Tests(unittest.TestCase):
     def setUp(self) -> None:
-        os.mkdir((os.path.join(os.getcwd(), "test")))
+        os.mkdir((os.path.join(os.path.dirname(__file__), "test")))
 
     def tearDown(self) -> None:
-        shutil.rmtree((os.path.join(os.getcwd(), "test")))
+        shutil.rmtree((os.path.join(os.path.dirname(__file__), "test")))
 
     def test_sanitize_input_upper_folder(self):
         self.assertEqual("", path_processor.sanitize_input_path(""))
@@ -34,15 +34,16 @@ class Tests(unittest.TestCase):
         self.assertEqual("root/bin/sbin ps -ef", path_processor.sanitize_input_path("/root/bin/sbin \nps -ef"))
 
     def test_list_contents(self):
+        req_path = os.path.join(os.path.dirname(__file__), "test/test2")
         self.assertEqual(
             (404, {'error': 'Folder does not exist', "requested_path": req_path}),
             path_processor.list_contents(req_path)
         )
-        os.mkdir(os.path.join(os.getcwd(), "test/test2"))
-        open("test/aa.txt", "w").close()
-        open("test/bb.txt", "w").close()
+        os.mkdir(os.path.join(os.path.dirname(__file__), "test/test2"))
+        open(os.path.join(os.path.dirname(__file__), "test/aa.txt"), "w").close()
+        open(os.path.join(os.path.dirname(__file__), "test/bb.txt"), "w").close()
 
-        list_dir = path_processor.list_contents(os.path.join(os.getcwd(), "test"))
+        list_dir = path_processor.list_contents(os.path.join(os.path.dirname(__file__), "test"))
         for value in list_dir.values():
             self.assertTrue(value)
         self.assertEqual(
@@ -50,22 +51,23 @@ class Tests(unittest.TestCase):
             list(list_dir.keys())
         )
 
-        open("test/cc", "w").close()
+        open(os.path.join(os.path.dirname(__file__), "test/cc"), "w").close()
         self.assertEqual(
             ["aa.txt", "bb.txt", "cc", "test2"],
-            list(path_processor.list_contents(os.path.join(os.getcwd(), "test")).keys())
+            list(path_processor.list_contents(os.path.join(os.path.dirname(__file__), "test")).keys())
         )
 
     def test_differentiate_dirs(self):
+        req_path = os.path.join(os.path.dirname(__file__), "test/test2")
         self.assertEqual(
             (404, {'error': 'Folder does not exist', "requested_path": req_path}),
             path_processor.list_differentiate_dirs(req_path)
         )
-        os.mkdir(os.path.join(os.getcwd(), "test/test2"))
-        os.mkdir(os.path.join(os.getcwd(), "test/test3"))
-        open("test/aa.txt", "w").close()
-        open("test/bb.txt", "w").close()
-        open("test/cc", "w").close()
+        os.mkdir(os.path.join(os.path.dirname(__file__), "test/test2"))
+        os.mkdir(os.path.join(os.path.dirname(__file__), "test/test3"))
+        open(os.path.join(os.path.dirname(__file__), "test/aa.txt"), "w").close()
+        open(os.path.join(os.path.dirname(__file__), "test/bb.txt"), "w").close()
+        open(os.path.join(os.path.dirname(__file__), "test/cc"), "w").close()
 
         self.assertEqual(
             {
@@ -75,12 +77,12 @@ class Tests(unittest.TestCase):
                 "test2": True,
                 "test3": True
             },
-            path_processor.list_differentiate_dirs(os.path.join(os.getcwd(), "test"))
+            path_processor.list_differentiate_dirs(os.path.join(os.path.dirname(__file__), "test"))
         )
 
         os.symlink(
-            os.path.join(os.getcwd(), "test/test3"),
-            os.path.join(os.getcwd(), "test/sl_to_test_3")
+            os.path.join(os.path.dirname(__file__), "test/test3"),
+            os.path.join(os.path.dirname(__file__), "test/sl_to_test_3")
         )
         self.assertEqual(
             {
@@ -90,10 +92,10 @@ class Tests(unittest.TestCase):
                 "test2": True,
                 "test3": True
             },
-            path_processor.list_differentiate_dirs(os.path.join(os.getcwd(), "test"))
+            path_processor.list_differentiate_dirs(os.path.join(os.path.dirname(__file__), "test"))
         )
 
-        open("test/dd.json", "w").close()
+        open(os.path.join(os.path.dirname(__file__), "test/dd.json"), "w").close()
         self.assertEqual(
             {
                 "aa.txt": False,
@@ -103,10 +105,11 @@ class Tests(unittest.TestCase):
                 "test2": True,
                 "test3": True
             },
-            path_processor.list_differentiate_dirs(os.path.join(os.getcwd(), "test"))
+            path_processor.list_differentiate_dirs(os.path.join(os.path.dirname(__file__), "test"))
         )
 
     def test_differentiate_projects(self):
+        req_path = os.path.join(os.path.dirname(__file__), "test/test2")
         self.assertEqual(
             (404, {'error': 'Folder does not exist', "requested_path": req_path}),
             path_processor.list_differentiate_projects(req_path)
