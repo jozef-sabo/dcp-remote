@@ -115,6 +115,69 @@ class Tests(unittest.TestCase):
             path_processor.list_differentiate_projects(req_path)
         )
 
+        os.mkdir(os.path.join(os.path.dirname(__file__), "test/test2"))
+        os.mkdir(os.path.join(os.path.dirname(__file__), "test/test3"))
+        open(os.path.join(os.path.dirname(__file__), "test/aa.txt"), "w").close()
+        open(os.path.join(os.path.dirname(__file__), "test/bb.txt"), "w").close()
+        open(os.path.join(os.path.dirname(__file__), "test/cc"), "w").close()
 
-if __name__ == '__main__':
-    unittest.main()
+        self.assertEqual(
+            {
+                "aa.txt": "file",
+                "bb.txt": "file",
+                "cc": "file",
+                "test2": "directory",
+                "test3": "directory"
+            },
+            path_processor.list_differentiate_projects(os.path.join(os.path.dirname(__file__), "test"))
+        )
+
+        self.assertEqual(
+            {},
+            path_processor.list_differentiate_projects(os.path.join(os.path.dirname(__file__), "test"),
+                                                       return_all=False)
+        )
+
+        shutil.copytree(os.path.join(os.path.dirname(__file__), "projects_testing/proj_b"),
+                        os.path.join(os.path.dirname(__file__), "test/proj_b"))
+
+        self.assertEqual(
+            {
+                "aa.txt": "file",
+                "bb.txt": "file",
+                "cc": "file",
+                "proj_b": "project",
+                "test2": "directory",
+                "test3": "directory"
+            },
+            path_processor.list_differentiate_projects(os.path.join(os.path.dirname(__file__), "test"))
+        )
+        self.assertEqual(
+            {"proj_b": True},
+            path_processor.list_differentiate_projects(os.path.join(os.path.dirname(__file__), "test"),
+                                                       return_all=False)
+        )
+
+        shutil.copytree(os.path.join(os.path.dirname(__file__), "projects_testing/proj_c"),
+                        os.path.join(os.path.dirname(__file__), "test/proj_c"))
+
+        self.assertEqual(
+            {
+                "aa.txt": "file",
+                "bb.txt": "file",
+                "cc": "file",
+                "proj_b": "project",
+                "proj_c": "project",
+                "test2": "directory",
+                "test3": "directory"
+            },
+            path_processor.list_differentiate_projects(os.path.join(os.path.dirname(__file__), "test"))
+        )
+        self.assertEqual(
+            {
+                "proj_b": True,
+                "proj_c": True
+            },
+            path_processor.list_differentiate_projects(os.path.join(os.path.dirname(__file__), "test"),
+                                                       return_all=False)
+        )
