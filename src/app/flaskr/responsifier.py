@@ -22,7 +22,7 @@ def make_response(data: Union[dict, tuple, str, list], **kwargs) -> Response:
             data,
             status=200
         )
-        response.headers["Cross-Origin-Resource-Policy"] = cors
+        response.headers["Access-Control-Allow-Origin"] = cors
         response.headers["Content-Type"] = C_TYPE_PLAIN
         return response
 
@@ -31,7 +31,13 @@ def make_response(data: Union[dict, tuple, str, list], **kwargs) -> Response:
             json.dumps(data),
             status=200
         )
-        response.headers["Cross-Origin-Resource-Policy"] = cors
+        if type(data) == dict:
+            if data.get("error") is not None:
+                response = Response(
+                    json.dumps(data),
+                    status=404
+                )
+        response.headers["Access-Control-Allow-Origin"] = cors
         response.headers["Content-Type"] = C_TYPE_JSON
         return response
 
@@ -43,11 +49,11 @@ def make_response(data: Union[dict, tuple, str, list], **kwargs) -> Response:
         else:  # (text: 200, response_code: "text")
             data = (data[1], data[0])
 
-    status_code = data[1]
+    status_code = data[1] if type(data[1]) == int else 200
     if type(data[0]) == str:
         text = data[0]
 
-    if type(data[0]) == dict or type(data) == list:
+    if type(data[0]) == dict or type(data[0]) == list:
         text = json.dumps(data[0])
         content_type = C_TYPE_JSON
 
@@ -55,7 +61,7 @@ def make_response(data: Union[dict, tuple, str, list], **kwargs) -> Response:
         text,
         status=status_code
     )
-    response.headers["Cross-Origin-Resource-Policy"] = cors
+    response.headers["Access-Control-Allow-Origin"] = cors
     response.headers["Content-Type"] = content_type
 
     return response
