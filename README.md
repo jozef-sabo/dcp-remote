@@ -18,7 +18,9 @@ This Python app helps you to easily send and process media files and DCP-O-Matic
 │   └── ufw   # custom rules for ufw
 │       └── applications.d
 ```
-Graph shows only basic structure without end files.
+Graph shows only basic structure without end files.  
+  
+Actual version of application can show and differentiate files, folders and projects in browser. Also, it can show raw info about project and start encoding project without further control. It's the first working version. However, cannot be built for any OS yet (only usable manually).
 
 ---
 Made real by Jozef Sabo
