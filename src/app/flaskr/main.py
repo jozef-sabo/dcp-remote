@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
 import path_processor
 import project_info_reader
 import responsifier
@@ -10,12 +10,27 @@ PORT = 8080
 CORS = IP
 responsifier.set_cors(CORS)
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/static")
+
+
+@app.route('/css/<path:path>')
+def send_css(path):
+    return send_from_directory('static/css', path)
+
+
+@app.route('/js/<path:path>')
+def send_js(path):
+    return send_from_directory('static/js', path)
+
+
+@app.route('/fonts/<path:path>')
+def send_fonts(path):
+    return send_from_directory('static/fonts', path)
 
 
 @app.route("/")
 def index():
-    return "Works"
+    return send_from_directory('static', "index.html")
 
 
 @app.route("/api/file_list", methods=['POST'])

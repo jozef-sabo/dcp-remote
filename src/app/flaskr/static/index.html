@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>DCP-o-matic Remote</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="header flex row row-centered">
+        <h1>DCP-o-matic Remote</h1>
+    </div>
+    <div class="body flex centered column">
+        <div class="entry flex row row-centered path-controls">
+            <a class="anchor-button" onclick="changeDirectory(this)"><i class="fa fa-level-up"></i></a>
+            <label>
+                <input id="input-path" class="path-input" value="/" autocomplete="off" placeholder="path to project">
+            </label>
+        </div>
+
+        <div id="entries" class="entry">
+            <div class="entry flex row">
+
+                <a onclick="changeDirectory(this)"><i class="fa fa-folder" aria-hidden="true"></i> Folder</a>
+
+                <div class="controls">
+                    <a class="anchor-button" onclick="encode(this)">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                    </a>
+                    <a class="anchor-button" onclick="showInfo(this)">
+                        <i class="fa fa-info" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="entry flex row">
+                <a onclick="changeDirectory(this)"><i class="fa fa-file" aria-hidden="true"></i> Abc</a>
+                <div class="controls">
+                    <a class="anchor-button" onclick="encode(this)">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                    </a>
+                    <a class="anchor-button" onclick="showInfo(this)">
+                        <i class="fa fa-info" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
