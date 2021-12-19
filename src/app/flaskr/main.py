@@ -3,6 +3,7 @@ from flask import Flask, request, send_from_directory
 import path_processor
 import project_info_reader
 import responsifier
+import dcpomatic_runner
 
 ROOT_DIRECTORY = "/var/ftp/jefinko/"
 IP = "192.168.1.20"
@@ -74,6 +75,22 @@ def project_info():
             projects.append(project_info_reader.get_project(key))
 
         return responsifier.make_response(projects)
+
+
+@app.route("/api/encode", methods=['POST'])
+def encode():
+    project = request.values.get("project", 0)
+
+    if project == 0:
+        return responsifier.make_response((400, {"error": "Path was not set"}))
+
+    else:
+        sanitized_path = path_processor.sanitize_input_path(project)
+        req_path = os.path.join(ROOT_DIRECTORY, sanitized_path)
+
+        dcpomatic_runner.encode(req_path)
+
+        return responsifier.make_response("projects")
 
 
 app.run(host=IP, port=PORT, debug=False)

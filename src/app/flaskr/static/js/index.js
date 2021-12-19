@@ -1,20 +1,28 @@
-let inputPath;
-let entries;
+let input_path;
+let div_entries;
+let div_info;
 window.addEventListener("load", function (){
-    inputPath = document.getElementById("input-path")
-    inputPath.addEventListener("keydown", changeDirectory)
+    input_path = document.getElementById("input-path")
+    input_path.addEventListener("keydown", changeDirectory)
 
-    entries = document.getElementById("entries")
+    div_entries = document.getElementById("entries")
+
+    div_info = document.getElementById("info")
 
     changeDirectory({key:"Enter"})
 })
 let path = "/"
 
+function getPathFromElement(element) {
+    let inner_html_arr = element.innerHTML.split(">")
+    return inner_html_arr[inner_html_arr.length - 1].slice(1)
+}
+
 function changeDirectory(dom_object) {
     // pressed enter
     if (typeof dom_object.key !== "undefined") {
         if (dom_object.key  === "Enter") {
-            path = inputPath.value
+            path = input_path.value
         } else {
             return
         }
@@ -26,17 +34,16 @@ function changeDirectory(dom_object) {
             path_array.pop()
         } else { // pressed folder/file name
             let position = dom_object.innerHTML.search("folder") + dom_object.innerHTML.search("video-camera")
-            let inner_html_arr = dom_object.innerHTML.split(">")
 
             if (position === -2) {
                 return;
             }
-            path_array.push(inner_html_arr[inner_html_arr.length - 1].slice(1))
+            path_array.push(getPathFromElement(dom_object))
         }
         path_array = path_array.filter(function (n){return n !== ""})
         path = path_array.join("/")
         path = "/" + path
-        inputPath.value = path
+        input_path.value = path
     }
 
     let xhr = new XMLHttpRequest();
@@ -69,7 +76,7 @@ function changeDirectory(dom_object) {
                        "            " + controls_html +
                        "</div>\n"
                })
-           entries.innerHTML = new_inner_html}
+           div_entries.innerHTML = new_inner_html}
        }};
 
     let formData = new FormData()
@@ -80,11 +87,51 @@ function changeDirectory(dom_object) {
 }
 
 function encode(dom_object) {
-    console.log(dom_object.parentElement.previousElementSibling.innerHTML)
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/encode");
+
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+           if (xhr.status === 200) {
+               let response = JSON.parse(xhr.responseText)
+               console.log(response)
+               div_info.innerText = xhr.responseText
+       }}}
+
+    let formData = new FormData()
+
+    let path_array = path.split("/")
+    path_array.push(getPathFromElement(dom_object.parentElement.previousElementSibling))
+    path_array = path_array.filter(function (n){return n !== ""})
+
+    let project_path = path_array.join("/")
+    formData.append("project", project_path)
+
+    xhr.send(formData);
 }
 
 function showInfo(dom_object) {
-    console.log(dom_object.parentElement.previousElementSibling.innerHTML)
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/project_info");
+
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+           if (xhr.status === 200) {
+               let response = JSON.parse(xhr.responseText)
+               console.log(response)
+               div_info.innerText = xhr.responseText
+       }}}
+
+    let formData = new FormData()
+
+    let path_array = path.split("/")
+    path_array.push(getPathFromElement(dom_object.parentElement.previousElementSibling))
+    path_array = path_array.filter(function (n){return n !== ""})
+
+    let project_path = path_array.join("/")
+    formData.append("project", project_path)
+
+    xhr.send(formData);
 }
 
 
