@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# copy edited config
+sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.older
+sudo cp /usr/lib/dcp-remote/.configs/vsftpd.conf /etc/vsftpd.conf
+
+# creating the new user
+useradd vsftpd
+
+# removing user from login screen
+chmod +x /usr/bin/dcp-remote/return_unused_uid_gid.py
+chmod +x /usr/bin/dcp-remote/remove_ufw_rules.py
+uid=$(/usr/bin/dcp-remote/return_unused_uid_gid.py | grep uuid | cut -d' ' -f2)
+gid=$(/usr/bin/dcp-remote/return_unused_uid_gid.py | grep ugid | cut -d' ' -f2)
+usermod -u "$uid" vsftpd
+groupmod -g "$gid" vsftpd
+
+# setting the user a new home
+mkdir /var/ftp
+usermod --home /var/ftp vsftpd
+usermod --shell /usr/sbin/nologin vsftpd
+chown vsftpd /var/ftp
+chmod o+rwx /var/ftp
+
+systemctl restart vsftpd
+
+# adding rule for ufw
+ufw_installed_check=$(dpkg -s ufw | grep -o Version)
+# sudo ufw status | grep Status | cut -d' ' -f2  # ufw status
+if [ "$ufw_installed_check" = "Version" ]
+then
+  # cat /etc/ufw/applications.d/my-custom-profiles
+  ufw allow DCPomaticRemote
+fi
+
+
+exit 0

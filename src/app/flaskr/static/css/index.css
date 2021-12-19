@@ -1,0 +1,85 @@
+* {
+    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+.body {
+    height: 80%;
+    max-height: 80%;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.row-centered {
+    justify-content: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.column-centered {
+    align-items: center;
+}
+
+.centered {
+    justify-content: center;
+    align-items: center;
+}
+
+.entry {
+    width: 480px;
+    max-width: 90%;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin: 16px;
+}
+
+.path-input {
+    width: 90%;
+
+}
+
+.path-controls > .anchor-button {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    width: 80%;
+}
+
+.path-controls {
+    justify-content: space-evenly;
+    padding: 16px;
+}
+
+.anchor-button, .entry>a {
+    cursor: pointer;
+}
+
+#entries {
+    overflow-y: auto;
+}
+
+#entries>div>a {
+    word-break: break-all;
+    max-width: 90%;
+}

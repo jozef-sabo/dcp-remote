@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# returning back old vsftpd config
+sudo cp /etc/vsftpd.conf.older /etc/vsftpd.conf
+sudo rm /etc/vsftpd.conf.older
+systemctl restart vsftpd
+
+# removing ufw rule for this app
+ufw_installed_check=$(dpkg -s ufw | grep -o Version)
+if [ "$ufw_installed_check" = "Version" ]
+then
+  /usr/bin/dcp-remote/remove_ufw_rules.py
+fi
+
+
+exit 0

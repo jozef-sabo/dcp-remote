@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Metadata>
+  <Version>37</Version>
+  <Name>Project_A</Name>
+  <UseISDCFName>1</UseISDCFName>
+  <DCPContentType>FTR</DCPContentType>
+  <Container>185</Container>
+  <Resolution>2K</Resolution>
+  <J2KBandwidth>100000000</J2KBandwidth>
+  <ISDCFMetadata>
+    <ContentVersion>1</ContentVersion>
+    <SubtitleLanguage>CZ</SubtitleLanguage>
+    <AudioLanguage>SK</AudioLanguage>
+    <Territory>SK</Territory>
+    <Rating>15</Rating>
+    <Studio></Studio>
+    <Facility></Facility>
+    <TempVersion>0</TempVersion>
+    <PreRelease>0</PreRelease>
+    <RedBand>0</RedBand>
+    <Chain></Chain>
+    <TwoDVersionOfThreeD>0</TwoDVersionOfThreeD>
+    <MasteredLuminance></MasteredLuminance>
+  </ISDCFMetadata>
+  <VideoFrameRate>60</VideoFrameRate>
+  <ISDCFDate>20211107</ISDCFDate>
+  <AudioChannels>6</AudioChannels>
+  <ThreeD>0</ThreeD>
+  <Sequence>1</Sequence>
+  <Interop>1</Interop>
+  <Signed>1</Signed>
+  <Encrypted>0</Encrypted>
+  <Key>4f43ff1bae3497cf038e3c5a8ea63a05</Key>
+  <ContextID>efa237e8-db51-401a-abe0-0d70a6b55d69</ContextID>
+  <ReelType>0</ReelType>
+  <ReelLength>2000000000</ReelLength>
+  <UploadAfterMakeDCP>0</UploadAfterMakeDCP>
+  <ReencodeJ2K>0</ReencodeJ2K>
+  <UserExplicitVideoFrameRate>1</UserExplicitVideoFrameRate>
+  <Playlist>
+    <Content>
+      <Type>FFmpeg</Type>
+      <Path mtime="1636312099">/home/user/Downloads/bbb_sunflower_1080p_60fps_normal.mp4</Path>
+      <Digest>dfeba4ae1d00efbf318db03ed65c237c355856562</Digest>
+      <Position>0</Position>
+      <TrimStart>0</TrimStart>
+      <TrimEnd>0</TrimEnd>
+      <VideoFrameRate>60</VideoFrameRate>
+      <VideoLength>38072</VideoLength>
+      <VideoWidth>1920</VideoWidth>
+      <VideoHeight>1080</VideoHeight>
+      <VideoFrameType>2d</VideoFrameType>
+      <SampleAspectRatio>1</SampleAspectRatio>
+      <LeftCrop>0</LeftCrop>
+      <RightCrop>0</RightCrop>
+      <TopCrop>0</TopCrop>
+      <BottomCrop>0</BottomCrop>
+      <Scale>
+        <Ratio>178</Ratio>
+      </Scale>
+      <ColourConversion>
+        <InputTransferFunction>
+          <Type>Gamma</Type>
+          <Gamma>2.2</Gamma>
+        </InputTransferFunction>
+        <YUVToRGB>1</YUVToRGB>
+        <RedX>0.64</RedX>
+        <RedY>0.33</RedY>
+        <GreenX>0.3</GreenX>
+        <GreenY>0.6</GreenY>
+        <BlueX>0.15</BlueX>
+        <BlueY>0.06</BlueY>
+        <WhiteX>0.3127</WhiteX>
+        <WhiteY>0.329</WhiteY>
+        <OutputGamma>2.6</OutputGamma>
+      </ColourConversion>
+      <YUV>1</YUV>
+      <FadeIn>0</FadeIn>
+      <FadeOut>0</FadeOut>
+      <AudioGain>0</AudioGain>
+      <AudioDelay>0</AudioDelay>
+      <AudioStream>
+        <Name>und</Name>
+        <Id>2</Id>
+        <FrameRate>48000</FrameRate>
+        <Length>30457600</Length>
+        <Mapping>
+          <InputChannels>2</InputChannels>
+          <OutputChannels>16</OutputChannels>
+          <Gain Input="0" Output="0">1</Gain>
+          <Gain Input="0" Output="1">0</Gain>
+          <Gain Input="0" Output="2">0</Gain>
+          <Gain Input="0" Output="3">0</Gain>
+          <Gain Input="0" Output="4">0</Gain>
+          <Gain Input="0" Output="5">0</Gain>
+          <Gain Input="0" Output="6">0</Gain>
+          <Gain Input="0" Output="7">0</Gain>
+          <Gain Input="0" Output="8">0</Gain>
+          <Gain Input="0" Output="9">0</Gain>
+          <Gain Input="0" Output="10">0</Gain>
+          <Gain Input="0" Output="11">0</Gain>
+          <Gain Input="0" Output="12">0</Gain>
+          <Gain Input="0" Output="13">0</Gain>
+          <Gain Input="0" Output="14">0</Gain>
+          <Gain Input="0" Output="15">0</Gain>
+          <Gain Input="1" Output="0">0</Gain>
+          <Gain Input="1" Output="1">1</Gain>
+          <Gain Input="1" Output="2">0</Gain>
+          <Gain Input="1" Output="3">0</Gain>
+          <Gain Input="1" Output="4">0</Gain>
+          <Gain Input="1" Output="5">0</Gain>
+          <Gain Input="1" Output="6">0</Gain>
+          <Gain Input="1" Output="7">0</Gain>
+          <Gain Input="1" Output="8">0</Gain>
+          <Gain Input="1" Output="9">0</Gain>
+          <Gain Input="1" Output="10">0</Gain>
+          <Gain Input="1" Output="11">0</Gain>
+          <Gain Input="1" Output="12">0</Gain>
+          <Gain Input="1" Output="13">0</Gain>
+          <Gain Input="1" Output="14">0</Gain>
+          <Gain Input="1" Output="15">0</Gain>
+        </Mapping>
+        <FirstAudio>0</FirstAudio>
+        <CodecName>mp3float</CodecName>
+      </AudioStream>
+      <AudioStream>
+        <Name>und</Name>
+        <Id>3</Id>
+        <FrameRate>48000</FrameRate>
+        <Length>30457600</Length>
+        <Mapping>
+          <InputChannels>6</InputChannels>
+          <OutputChannels>16</OutputChannels>
+          <Gain Input="0" Output="0">0</Gain>
+          <Gain Input="0" Output="1">0</Gain>
+          <Gain Input="0" Output="2">0</Gain>
+          <Gain Input="0" Output="3">0</Gain>
+          <Gain Input="0" Output="4">0</Gain>
+          <Gain Input="0" Output="5">0</Gain>
+          <Gain Input="0" Output="6">0</Gain>
+          <Gain Input="0" Output="7">0</Gain>
+          <Gain Input="0" Output="8">0</Gain>
+          <Gain Input="0" Output="9">0</Gain>
+          <Gain Input="0" Output="10">0</Gain>
+          <Gain Input="0" Output="11">0</Gain>
+          <Gain Input="0" Output="12">0</Gain>
+          <Gain Input="0" Output="13">0</Gain>
+          <Gain Input="0" Output="14">0</Gain>
+          <Gain Input="0" Output="15">0</Gain>
+          <Gain Input="1" Output="0">0</Gain>
+          <Gain Input="1" Output="1">0</Gain>
+          <Gain Input="1" Output="2">0</Gain>
+          <Gain Input="1" Output="3">0</Gain>
+          <Gain Input="1" Output="4">0</Gain>
+          <Gain Input="1" Output="5">0</Gain>
+          <Gain Input="1" Output="6">0</Gain>
+          <Gain Input="1" Output="7">0</Gain>
+          <Gain Input="1" Output="8">0</Gain>
+          <Gain Input="1" Output="9">0</Gain>
+          <Gain Input="1" Output="10">0</Gain>
+          <Gain Input="1" Output="11">0</Gain>
+          <Gain Input="1" Output="12">0</Gain>
+          <Gain Input="1" Output="13">0</Gain>
+          <Gain Input="1" Output="14">0</Gain>
+          <Gain Input="1" Output="15">0</Gain>
+          <Gain Input="2" Output="0">0</Gain>
+          <Gain Input="2" Output="1">0</Gain>
+          <Gain Input="2" Output="2">0</Gain>
+          <Gain Input="2" Output="3">0</Gain>
+          <Gain Input="2" Output="4">0</Gain>
+          <Gain Input="2" Output="5">0</Gain>
+          <Gain Input="2" Output="6">0</Gain>
+          <Gain Input="2" Output="7">0</Gain>
+          <Gain Input="2" Output="8">0</Gain>
+          <Gain Input="2" Output="9">0</Gain>
+          <Gain Input="2" Output="10">0</Gain>
+          <Gain Input="2" Output="11">0</Gain>
+          <Gain Input="2" Output="12">0</Gain>
+          <Gain Input="2" Output="13">0</Gain>
+          <Gain Input="2" Output="14">0</Gain>
+          <Gain Input="2" Output="15">0</Gain>
+          <Gain Input="3" Output="0">0</Gain>
+          <Gain Input="3" Output="1">0</Gain>
+          <Gain Input="3" Output="2">0</Gain>
+          <Gain Input="3" Output="3">0</Gain>
+          <Gain Input="3" Output="4">0</Gain>
+          <Gain Input="3" Output="5">0</Gain>
+          <Gain Input="3" Output="6">0</Gain>
+          <Gain Input="3" Output="7">0</Gain>
+          <Gain Input="3" Output="8">0</Gain>
+          <Gain Input="3" Output="9">0</Gain>
+          <Gain Input="3" Output="10">0</Gain>
+          <Gain Input="3" Output="11">0</Gain>
+          <Gain Input="3" Output="12">0</Gain>
+          <Gain Input="3" Output="13">0</Gain>
+          <Gain Input="3" Output="14">0</Gain>
+          <Gain Input="3" Output="15">0</Gain>
+          <Gain Input="4" Output="0">0</Gain>
+          <Gain Input="4" Output="1">0</Gain>
+          <Gain Input="4" Output="2">0</Gain>
+          <Gain Input="4" Output="3">0</Gain>
+          <Gain Input="4" Output="4">0</Gain>
+          <Gain Input="4" Output="5">0</Gain>
+          <Gain Input="4" Output="6">0</Gain>
+          <Gain Input="4" Output="7">0</Gain>
+          <Gain Input="4" Output="8">0</Gain>
+          <Gain Input="4" Output="9">0</Gain>
+          <Gain Input="4" Output="10">0</Gain>
+          <Gain Input="4" Output="11">0</Gain>
+          <Gain Input="4" Output="12">0</Gain>
+          <Gain Input="4" Output="13">0</Gain>
+          <Gain Input="4" Output="14">0</Gain>
+          <Gain Input="4" Output="15">0</Gain>
+          <Gain Input="5" Output="0">0</Gain>
+          <Gain Input="5" Output="1">0</Gain>
+          <Gain Input="5" Output="2">0</Gain>
+          <Gain Input="5" Output="3">0</Gain>
+          <Gain Input="5" Output="4">0</Gain>
+          <Gain Input="5" Output="5">0</Gain>
+          <Gain Input="5" Output="6">0</Gain>
+          <Gain Input="5" Output="7">0</Gain>
+          <Gain Input="5" Output="8">0</Gain>
+          <Gain Input="5" Output="9">0</Gain>
+          <Gain Input="5" Output="10">0</Gain>
+          <Gain Input="5" Output="11">0</Gain>
+          <Gain Input="5" Output="12">0</Gain>
+          <Gain Input="5" Output="13">0</Gain>
+          <Gain Input="5" Output="14">0</Gain>
+          <Gain Input="5" Output="15">0</Gain>
+        </Mapping>
+        <FirstAudio>0</FirstAudio>
+        <CodecName>ac3</CodecName>
+      </AudioStream>
+      <FirstVideo>3200</FirstVideo>
+      <ColorRange>0</ColorRange>
+      <ColorPrimaries>2</ColorPrimaries>
+      <ColorTransferCharacteristic>2</ColorTransferCharacteristic>
+      <Colorspace>2</Colorspace>
+      <BitsPerPixel>12</BitsPerPixel>
+    </Content>
+    <Content>
+      <Type>FFmpeg</Type>
+      <Path mtime="1637170089">/home/user/Downloads/En-us-Slovakia.ogg</Path>
+      <Digest>cca259971787fb69706132d780cb560819320</Digest>
+      <Position>0</Position>
+      <TrimStart>0</TrimStart>
+      <TrimEnd>0</TrimEnd>
+      <AudioGain>0</AudioGain>
+      <AudioDelay>0</AudioDelay>
+      <AudioStream>
+        <Name></Name>
+        <Id>0</Id>
+        <FrameRate>44100</FrameRate>
+        <Length>79872</Length>
+        <Mapping>
+          <InputChannels>1</InputChannels>
+          <OutputChannels>16</OutputChannels>
+          <Gain Input="0" Output="0">0</Gain>
+          <Gain Input="0" Output="1">0</Gain>
+          <Gain Input="0" Output="2">1</Gain>
+          <Gain Input="0" Output="3">0</Gain>
+          <Gain Input="0" Output="4">0</Gain>
+          <Gain Input="0" Output="5">0</Gain>
+          <Gain Input="0" Output="6">0</Gain>
+          <Gain Input="0" Output="7">0</Gain>
+          <Gain Input="0" Output="8">0</Gain>
+          <Gain Input="0" Output="9">0</Gain>
+          <Gain Input="0" Output="10">0</Gain>
+          <Gain Input="0" Output="11">0</Gain>
+          <Gain Input="0" Output="12">0</Gain>
+          <Gain Input="0" Output="13">0</Gain>
+          <Gain Input="0" Output="14">0</Gain>
+          <Gain Input="0" Output="15">0</Gain>
+        </Mapping>
+        <FirstAudio>0</FirstAudio>
+        <CodecName>vorbis</CodecName>
+      </AudioStream>
+    </Content>
+    <Content>
+      <Type>FFmpeg</Type>
+      <Path mtime="1636312143">/home/user/Downloads/bbb_sunflower_2160p_60fps_normal.mp4</Path>
+      <Digest>6cd4265083b464bbe843cb68cd88ade2673223862</Digest>
+      <Position>60915200</Position>
+      <TrimStart>0</TrimStart>
+      <TrimEnd>0</TrimEnd>
+      <VideoFrameRate>60</VideoFrameRate>
+      <VideoLength>38072</VideoLength>
+      <VideoWidth>3840</VideoWidth>
+      <VideoHeight>2160</VideoHeight>
+      <VideoFrameType>2d</VideoFrameType>
+      <SampleAspectRatio>1</SampleAspectRatio>
+      <LeftCrop>0</LeftCrop>
+      <RightCrop>0</RightCrop>
+      <TopCrop>0</TopCrop>
+      <BottomCrop>0</BottomCrop>
+      <Scale>
+        <Ratio>178</Ratio>
+      </Scale>
+      <ColourConversion>
+        <InputTransferFunction>
+          <Type>Gamma</Type>
+          <Gamma>2.2</Gamma>
+        </InputTransferFunction>
+        <YUVToRGB>1</YUVToRGB>
+        <RedX>0.64</RedX>
+        <RedY>0.33</RedY>
+        <GreenX>0.3</GreenX>
+        <GreenY>0.6</GreenY>
+        <BlueX>0.15</BlueX>
+        <BlueY>0.06</BlueY>
+        <WhiteX>0.3127</WhiteX>
+        <WhiteY>0.329</WhiteY>
+        <OutputGamma>2.6</OutputGamma>
+      </ColourConversion>
+      <YUV>1</YUV>
+      <FadeIn>0</FadeIn>
+      <FadeOut>0</FadeOut>
+      <AudioGain>0</AudioGain>
+      <AudioDelay>0</AudioDelay>
+      <AudioStream>
+        <Name>und</Name>
+        <Id>2</Id>
+        <FrameRate>48000</FrameRate>
+        <Length>30457600</Length>
+        <Mapping>
+          <InputChannels>2</InputChannels>
+          <OutputChannels>16</OutputChannels>
+          <Gain Input="0" Output="0">1</Gain>
+          <Gain Input="0" Output="1">0</Gain>
+          <Gain Input="0" Output="2">0</Gain>
+          <Gain Input="0" Output="3">0</Gain>
+          <Gain Input="0" Output="4">0</Gain>
+          <Gain Input="0" Output="5">0</Gain>
+          <Gain Input="0" Output="6">0</Gain>
+          <Gain Input="0" Output="7">0</Gain>
+          <Gain Input="0" Output="8">0</Gain>
+          <Gain Input="0" Output="9">0</Gain>
+          <Gain Input="0" Output="10">0</Gain>
+          <Gain Input="0" Output="11">0</Gain>
+          <Gain Input="0" Output="12">0</Gain>
+          <Gain Input="0" Output="13">0</Gain>
+          <Gain Input="0" Output="14">0</Gain>
+          <Gain Input="0" Output="15">0</Gain>
+          <Gain Input="1" Output="0">0</Gain>
+          <Gain Input="1" Output="1">1</Gain>
+          <Gain Input="1" Output="2">0</Gain>
+          <Gain Input="1" Output="3">0</Gain>
+          <Gain Input="1" Output="4">0</Gain>
+          <Gain Input="1" Output="5">0</Gain>
+          <Gain Input="1" Output="6">0</Gain>
+          <Gain Input="1" Output="7">0</Gain>
+          <Gain Input="1" Output="8">0</Gain>
+          <Gain Input="1" Output="9">0</Gain>
+          <Gain Input="1" Output="10">0</Gain>
+          <Gain Input="1" Output="11">0</Gain>
+          <Gain Input="1" Output="12">0</Gain>
+          <Gain Input="1" Output="13">0</Gain>
+          <Gain Input="1" Output="14">0</Gain>
+          <Gain Input="1" Output="15">0</Gain>
+        </Mapping>
+        <FirstAudio>0</FirstAudio>
+        <CodecName>mp3float</CodecName>
+      </AudioStream>
+      <AudioStream>
+        <Name>und</Name>
+        <Id>3</Id>
+        <FrameRate>48000</FrameRate>
+        <Length>30457600</Length>
+        <Mapping>
+          <InputChannels>6</InputChannels>
+          <OutputChannels>16</OutputChannels>
+          <Gain Input="0" Output="0">0</Gain>
+          <Gain Input="0" Output="1">0</Gain>
+          <Gain Input="0" Output="2">0</Gain>
+          <Gain Input="0" Output="3">0</Gain>
+          <Gain Input="0" Output="4">0</Gain>
+          <Gain Input="0" Output="5">0</Gain>
+          <Gain Input="0" Output="6">0</Gain>
+          <Gain Input="0" Output="7">0</Gain>
+          <Gain Input="0" Output="8">0</Gain>
+          <Gain Input="0" Output="9">0</Gain>
+          <Gain Input="0" Output="10">0</Gain>
+          <Gain Input="0" Output="11">0</Gain>
+          <Gain Input="0" Output="12">0</Gain>
+          <Gain Input="0" Output="13">0</Gain>
+          <Gain Input="0" Output="14">0</Gain>
+          <Gain Input="0" Output="15">0</Gain>
+          <Gain Input="1" Output="0">0</Gain>
+          <Gain Input="1" Output="1">0</Gain>
+          <Gain Input="1" Output="2">0</Gain>
+          <Gain Input="1" Output="3">0</Gain>
+          <Gain Input="1" Output="4">0</Gain>
+          <Gain Input="1" Output="5">0</Gain>
+          <Gain Input="1" Output="6">0</Gain>
+          <Gain Input="1" Output="7">0</Gain>
+          <Gain Input="1" Output="8">0</Gain>
+          <Gain Input="1" Output="9">0</Gain>
+          <Gain Input="1" Output="10">0</Gain>
+          <Gain Input="1" Output="11">0</Gain>
+          <Gain Input="1" Output="12">0</Gain>
+          <Gain Input="1" Output="13">0</Gain>
+          <Gain Input="1" Output="14">0</Gain>
+          <Gain Input="1" Output="15">0</Gain>
+          <Gain Input="2" Output="0">0</Gain>
+          <Gain Input="2" Output="1">0</Gain>
+          <Gain Input="2" Output="2">0</Gain>
+          <Gain Input="2" Output="3">0</Gain>
+          <Gain Input="2" Output="4">0</Gain>
+          <Gain Input="2" Output="5">0</Gain>
+          <Gain Input="2" Output="6">0</Gain>
+          <Gain Input="2" Output="7">0</Gain>
+          <Gain Input="2" Output="8">0</Gain>
+          <Gain Input="2" Output="9">0</Gain>
+          <Gain Input="2" Output="10">0</Gain>
+          <Gain Input="2" Output="11">0</Gain>
+          <Gain Input="2" Output="12">0</Gain>
+          <Gain Input="2" Output="13">0</Gain>
+          <Gain Input="2" Output="14">0</Gain>
+          <Gain Input="2" Output="15">0</Gain>
+          <Gain Input="3" Output="0">0</Gain>
+          <Gain Input="3" Output="1">0</Gain>
+          <Gain Input="3" Output="2">0</Gain>
+          <Gain Input="3" Output="3">0</Gain>
+          <Gain Input="3" Output="4">0</Gain>
+          <Gain Input="3" Output="5">0</Gain>
+          <Gain Input="3" Output="6">0</Gain>
+          <Gain Input="3" Output="7">0</Gain>
+          <Gain Input="3" Output="8">0</Gain>
+          <Gain Input="3" Output="9">0</Gain>
+          <Gain Input="3" Output="10">0</Gain>
+          <Gain Input="3" Output="11">0</Gain>
+          <Gain Input="3" Output="12">0</Gain>
+          <Gain Input="3" Output="13">0</Gain>
+          <Gain Input="3" Output="14">0</Gain>
+          <Gain Input="3" Output="15">0</Gain>
+          <Gain Input="4" Output="0">0</Gain>
+          <Gain Input="4" Output="1">0</Gain>
+          <Gain Input="4" Output="2">0</Gain>
+          <Gain Input="4" Output="3">0</Gain>
+          <Gain Input="4" Output="4">0</Gain>
+          <Gain Input="4" Output="5">0</Gain>
+          <Gain Input="4" Output="6">0</Gain>
+          <Gain Input="4" Output="7">0</Gain>
+          <Gain Input="4" Output="8">0</Gain>
+          <Gain Input="4" Output="9">0</Gain>
+          <Gain Input="4" Output="10">0</Gain>
+          <Gain Input="4" Output="11">0</Gain>
+          <Gain Input="4" Output="12">0</Gain>
+          <Gain Input="4" Output="13">0</Gain>
+          <Gain Input="4" Output="14">0</Gain>
+          <Gain Input="4" Output="15">0</Gain>
+          <Gain Input="5" Output="0">0</Gain>
+          <Gain Input="5" Output="1">0</Gain>
+          <Gain Input="5" Output="2">0</Gain>
+          <Gain Input="5" Output="3">0</Gain>
+          <Gain Input="5" Output="4">0</Gain>
+          <Gain Input="5" Output="5">0</Gain>
+          <Gain Input="5" Output="6">0</Gain>
+          <Gain Input="5" Output="7">0</Gain>
+          <Gain Input="5" Output="8">0</Gain>
+          <Gain Input="5" Output="9">0</Gain>
+          <Gain Input="5" Output="10">0</Gain>
+          <Gain Input="5" Output="11">0</Gain>
+          <Gain Input="5" Output="12">0</Gain>
+          <Gain Input="5" Output="13">0</Gain>
+          <Gain Input="5" Output="14">0</Gain>
+          <Gain Input="5" Output="15">0</Gain>
+        </Mapping>
+        <FirstAudio>0</FirstAudio>
+        <CodecName>ac3</CodecName>
+      </AudioStream>
+      <FirstVideo>3200</FirstVideo>
+      <ColorRange>0</ColorRange>
+      <ColorPrimaries>2</ColorPrimaries>
+      <ColorTransferCharacteristic>2</ColorTransferCharacteristic>
+      <Colorspace>2</Colorspace>
+      <BitsPerPixel>12</BitsPerPixel>
+    </Content>
+  </Playlist>
+</Metadata>

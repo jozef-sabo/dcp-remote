@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Metadata>
+  <Version>37</Version>
+  <Name>Project_D</Name>
+  <DCPContentType>FTR</DCPContentType>
+  <Container>185</Container>
+  <Resolution>2K</Resolution>
+  <ISDCFMetadata>
+    <ContentVersion>1</ContentVersion>
+    <AudioLanguage>SK</AudioLanguage>
+    <Territory>SK</Territory>
+    <Rating>15</Rating>
+  </ISDCFMetadata>
+  <VideoFrameRate>60</VideoFrameRate>
+  <AudioChannels>6</AudioChannels>
+  <Playlist>
+    <Content>
+      <Type>FFmpeg</Type>
+      <Path mtime="1637170089">/home/user/Downloads/En-us-Slovakia.ogg</Path>
+      <AudioStream>
+        <FrameRate>44100</FrameRate>
+        <Length>79872</Length>
+      </AudioStream>
+    </Content>
+  </Playlist>
+</Metadata>
