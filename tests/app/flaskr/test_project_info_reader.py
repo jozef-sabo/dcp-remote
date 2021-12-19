@@ -55,6 +55,10 @@ class Tests(unittest.TestCase):
         if os.path.isdir(rm_path):
             os.rmdir(rm_path)
 
+    @classmethod
+    def setUpClass(cls) -> None:
+        project_info_reader.projects = {}
+
     def test_get_project(self):
         self.project_info["name"] = "Project_B"
         self.assertEqual(self.project_info, project_info_reader.get_project(

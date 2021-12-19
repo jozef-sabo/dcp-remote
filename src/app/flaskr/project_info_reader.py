@@ -82,7 +82,7 @@ def get_project(path_to_folder: str) -> Union[dict, tuple]:
     project_name = path_to_folder.split("/")[-1]
 
     metadata = projects.get(project_name)
-    if metadata:
+    if metadata is not None:
         if int(time.time()) - projects[project_name][1] < TIME_TO_LIVE:
             return projects[project_name][0]
 
