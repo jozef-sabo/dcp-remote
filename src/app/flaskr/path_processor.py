@@ -7,6 +7,11 @@ vulnerable_characters = ["\\", "\"", "\n", "│", "#", ";", "$", "*", "=", "`", 
 
 
 def sanitize_input_path(req_path: str):
+    """
+    Sanitizes given path from possibly included injection
+    :param req_path: Path to be sanitized
+    :return: Sanitized path without injection payload
+    """
     # removing vulnerable characters
     req_path = ''.join((filter(lambda ch: ch not in vulnerable_characters, req_path)))
     req_path = req_path.strip().replace("..", "").replace("//", "/")
@@ -27,6 +32,12 @@ def sanitize_input_path(req_path: str):
 
 
 def list_contents(req_path: str) -> Union[dict, tuple]:
+    """
+    Returns contents of folder of a given path as dictionary. In order to safety, path need to be first sanitized.
+    :param req_path: Path of a folder
+    :return: Dictionary of contents. Dictionary keys are content's names and values are information about each entry.
+    If folder is not found, there will be an error message with "error" key
+    """
     with subprocess.Popen(["ls", "-l", "-Q", req_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE) as execution:
         # OUT
         # total 52
@@ -55,6 +66,12 @@ def list_contents(req_path: str) -> Union[dict, tuple]:
 
 
 def list_differentiate_dirs(req_path: str) -> Union[dict, tuple]:
+    """
+    Finds out if contents of a folder is a directory or a file.
+    :param req_path: Path of a folder
+    :return: Returns dictionary with content's names as a key and
+    boolean of decision if entry is a folder or file as a value.
+    """
     contents = list_contents(req_path)
     if contents == (404, {"error": "Folder does not exist", "requested_path": req_path}):
         return 404, {"error": "Folder does not exist", "requested_path": req_path}
@@ -72,6 +89,12 @@ def list_differentiate_dirs(req_path: str) -> Union[dict, tuple]:
 
 
 def list_differentiate_projects(req_path: str, return_all: bool = True) -> Union[dict, tuple]:
+    """
+    Finds out if contents of a folder is a file, a directory or a project.
+    :param req_path: Path of a folder
+    :return: Returns dictionary with content's names as a key and
+    text values "file", "directory", "project" for a file, a directory or a project respectively.
+    """
     contents = list_differentiate_dirs(req_path)
     if contents == (404, {"error": "Folder does not exist", "requested_path": req_path}):
         return 404, {"error": "Folder does not exist", "requested_path": req_path}

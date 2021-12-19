@@ -7,12 +7,28 @@ C_TYPE_PLAIN = "text/plain; charset=UTF-8"
 C_TYPE_JSON = "application/json; charset=UTF-8"
 
 
-def set_cors(cors: str):
+def set_cors(cors: str) -> None:
+    """
+    Changes default CORS value.
+    :param cors: IP address or hostname of website where data will be shown
+    """
     global CORS
     CORS = cors
 
 
 def make_response(data: Union[dict, tuple, str, list], **kwargs) -> Response:
+    """
+    Takes given data and makes a response out of them. Default status_code is 200 (OK). \n
+    Reformable data types:
+        - **string**: Returns response of text type
+        - **list**: JSON-ifies the list and returns it in json-format response
+        - **dictionary**:  JSON-ifies the dictionary and returns it in json-format response
+        - **tuple**: Finds the integer value which will be set as status_code. If there are present two integer values,
+        the status code will be the second value. Processing of the non-status_code value is described above
+    :param data: Data of optional data type
+    :param kwargs: cors: create response with other (local) CORS value. It doesn't rewrite the global value.
+    :return: Final response object which could already be returned to the user
+    """
     cors = kwargs.get("cors", CORS)
     if type(data) == tuple and len(data) == 1:
         data = data[0]

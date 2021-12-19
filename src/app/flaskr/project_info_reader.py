@@ -8,6 +8,12 @@ TIME_TO_LIVE = 5 * 60
 
 
 def read(path_to_folder: str) -> dict:
+    """
+    Reads DCP-o-matic project's info from metadata.xml file and stores it as dictionary.
+    If a given path is not a project it raises a Key error. Also add ability to cache read data.
+    :param path_to_folder: Path to a project
+    :return: Dictionary of project info
+    """
     metadata_file = os.path.join(path_to_folder, "metadata.xml")
 
     tree = etree.parse(metadata_file)
@@ -61,6 +67,13 @@ def read(path_to_folder: str) -> dict:
 
 
 def is_project(path_to_folder: str, forcibly_read: bool = False) -> bool:
+    """
+    Finds out if a given path is a DCP-o-matic project.
+    If a project was read recently, it will return cached data. Length of cache is 5 minutes.
+    :param path_to_folder: Path to a folder where should be a project
+    :param forcibly_read: If True, cached data will be ignored and reads the whole project again.
+    :return: Boolean value giving information whether is folder a project or not
+    """
     project_name = path_to_folder.split("/")[-1]
     if not forcibly_read:
         if project_name in projects:
@@ -79,6 +92,12 @@ def is_project(path_to_folder: str, forcibly_read: bool = False) -> bool:
 
 
 def get_project(path_to_folder: str) -> Union[dict, tuple]:
+    """
+    Returns a dictionary of project data.
+    If a project was read recently, it will return cached data. Length of cache is 5 minutes.
+    :param path_to_folder: Path to a project
+    :return: Dictionary with project data
+    """
     project_name = path_to_folder.split("/")[-1]
 
     metadata = projects.get(project_name)
