@@ -1,7 +1,9 @@
 import os.path
 import subprocess
-from . import project_info_reader
-# import project_info_reader
+try:
+    from . import project_info_reader
+except Exception as e:
+    import project_info_reader
 from typing import Union
 
 vulnerable_characters = ["\\", "\"", "\n", "│", "#", ";", "$", "*", "=", "`", "&", "[", "]", "<", ">"]
