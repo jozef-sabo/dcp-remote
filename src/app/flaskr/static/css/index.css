@@ -79,7 +79,24 @@ label {
     overflow-y: auto;
 }
 
-#entries>div>a {
+#entries>div>div>a, .info>p {
     word-break: break-all;
     max-width: 90%;
+}
+
+.info, .info>div, .info>div>div{
+    padding: 0 16px;
+}
+
+.info>p, .info>div>p, .info>div>div>p {
+    margin: 4px;
+
+}
+
+.info>p>i, .info>div>p>i, .info>div>div>p>i {
+    font-style: normal;
+}
+
+.bold {
+    font-weight: bold;
 }
