@@ -79,7 +79,7 @@ label {
     overflow-y: auto;
 }
 
-#entries>div>div>a, .info>p {
+#entries>div>div>a, .info>p>i, .info>div>p>i, .info>div>div>p>i {
     word-break: break-all;
     max-width: 90%;
 }

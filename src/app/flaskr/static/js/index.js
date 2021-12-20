@@ -246,6 +246,8 @@ function formInfoData(data) {
                 "                            <p><i class=\"key bold\">Audio Length</i>: <i class=\"value\">" + data.content[i].audio_length + "</i></p>\n" +
                 "                            <p><i class=\"key bold\">Audio Sample Rate</i>: <i class=\"value\">" + (data.content[i].audio_fps / 1000) + " kHz</i></p>\n" +
                 "                        </div>\n"
+        } else if ((data.content[i].type === "subtitles")) {
+            output_div += "<p><i class=\"fa fa-cc\" aria-hidden=\"true\"></i> <i class=\"value\">" + data.content[i].file_name + "</i></p>\n"
         }
     }
     output_div += "                    </div>\n" +
