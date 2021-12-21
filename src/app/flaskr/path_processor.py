@@ -94,6 +94,7 @@ def list_differentiate_dirs(req_path: str) -> Union[dict, tuple]:
 def list_differentiate_projects(req_path: str, return_all: bool = True) -> Union[dict, tuple]:
     """
     Finds out if contents of a folder is a file, a directory or a project.
+    :param return_all: If false, all of returned dictionary keys represent either directory or project not a file.
     :param req_path: Path of a folder
     :return: Returns dictionary with content's names as a key and
     text values "file", "directory", "project" for a file, a directory or a project respectively.
