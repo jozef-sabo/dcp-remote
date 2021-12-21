@@ -15,6 +15,7 @@
   <AudioChannels>6</AudioChannels>
   <Playlist>
     <Content>
+      <Type>FFmpeg</Type>
       <Path mtime="1636312099">/home/user/Downloads/bbb_sunflower_1080p_60fps_normal.mp4</Path>
       <VideoFrameRate>60</VideoFrameRate>
       <VideoLength>38072</VideoLength>
@@ -31,6 +32,10 @@
         <FrameRate>48000</FrameRate>
         <Length>30457600</Length>
       </AudioStream>
+    </Content>
+    <Content>
+      <Type>TextSubtitle</Type>
+      <Path mtime="1639973546">/home/saboj/Downloads/Mediterranean.Food.2009.SPANISH.WEBRip.x264-VXT-English.srt</Path>
     </Content>
     <Content>
       <Type>FFmpeg</Type>
