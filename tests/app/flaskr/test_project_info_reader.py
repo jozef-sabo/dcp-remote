@@ -31,6 +31,10 @@ class Tests(unittest.TestCase):
                     "audio_fps": 48000
                 },
                 {
+                    'file_name': 'Mediterranean.Food.2009.SPANISH.WEBRip.x264-VXT-English.srt',
+                    'type': 'subtitles'
+                },
+                {
                     "file_name": "En-us-Slovakia.ogg",
                     "type": "audio",
                     "audio_length": 79872,
@@ -98,7 +102,8 @@ class Tests(unittest.TestCase):
             os.path.join(os.path.dirname(__file__), "projects_testing/proj_c")))
 
         self.project_info["name"] = "Project_D"
-        self.project_info["content"].pop(2)
+        self.project_info["content"].pop(3)
+        self.project_info["content"].pop(1)
         self.project_info["content"].pop(0)
         self.assertEqual(self.project_info, project_info_reader.read(
             os.path.join(os.path.dirname(__file__), "projects_testing/proj_d")))

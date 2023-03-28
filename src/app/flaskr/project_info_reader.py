@@ -48,6 +48,11 @@ def read(path_to_folder: str) -> dict:
                 "type": "audio"
             }
 
+            if content.find("Type").text == "TextSubtitle":
+                content_dict["type"] = "subtitles"
+                metadata["content"].append(content_dict)
+                continue
+
             if content.find("VideoLength") is not None:
                 content_dict["type"] = "video"
                 content_dict["fps"] = int(content.find("VideoFrameRate").text)

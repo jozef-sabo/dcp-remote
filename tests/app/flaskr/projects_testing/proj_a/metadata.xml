@@ -239,6 +239,31 @@
       <BitsPerPixel>12</BitsPerPixel>
     </Content>
     <Content>
+      <Type>TextSubtitle</Type>
+      <Path mtime="1639973546">/home/saboj/Downloads/Mediterranean.Food.2009.SPANISH.WEBRip.x264-VXT-English.srt</Path>
+      <Digest>2a2a6d4263664a6a263b48ad3639145293644</Digest>
+      <Position>0</Position>
+      <TrimStart>0</TrimStart>
+      <TrimEnd>0</TrimEnd>
+      <Text>
+        <Use>1</Use>
+        <Burn>0</Burn>
+        <XOffset>0</XOffset>
+        <YOffset>0</YOffset>
+        <XScale>1</XScale>
+        <YScale>1</YScale>
+        <Language/>
+        <LineSpacing>1</LineSpacing>
+        <OutlineWidth>4</OutlineWidth>
+        <Font>
+          <Id>font</Id>
+        </Font>
+        <Type>open-subtitle</Type>
+        <OriginalType>unknown</OriginalType>
+      </Text>
+      <Length>539220480</Length>
+    </Content>
+    <Content>
       <Type>FFmpeg</Type>
       <Path mtime="1637170089">/home/user/Downloads/En-us-Slovakia.ogg</Path>
       <Digest>cca259971787fb69706132d780cb560819320</Digest>

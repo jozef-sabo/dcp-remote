@@ -2,9 +2,9 @@ name: Autotests
 on: [push]
 
 jobs:
-    scripts-test:
+    backend-test:
         runs-on: ubuntu-latest
-        name: Scripts test
+        name: Backend scripts test
 
         strategy:
           matrix:
@@ -22,12 +22,37 @@ jobs:
           - name: Install dependencies
             run: pip install -r requirements.txt
 
-          - name: Run Test
+          - name: Run Tests
             run: python -m unittest discover tests -v
+
+    frontend-test:
+      runs-on: ubuntu-latest
+      name: Frontend scripts test
+
+      steps:
+        - uses: actions/checkout@v2
+
+        - uses: actions/setup-node@v2
+          with:
+            node-version: '16'
+
+        - name: Install dependencies
+          run: npm install
+
+        - name: Run Tests
+          run: npm test
+
+    FE-BE-communication:
+      name: FE - BE communication test
+      needs: [backend-test, frontend-test]
+      runs-on: ubuntu-latest
+
+      steps:
+        - run: echo "Works"
 
     build-debian:
       name: Build for Debian
-      needs: scripts-test
+      needs: FE-BE-communication
       runs-on: ubuntu-latest
 
       steps:
